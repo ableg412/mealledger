@@ -1,0 +1,11 @@
+{
+  "name": "mealledger",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MealLedger — paperless H1530s and real-time CACFP compliance for multi-site providers.",
+  "scripts": {
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "build": "npm run build --prefix frontend && npm run build --prefix backend"
+  }
+}
