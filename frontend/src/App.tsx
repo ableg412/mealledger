@@ -9,12 +9,29 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import DemoModal from './components/DemoModal';
 import AuthModal from './components/AuthModal';
+import AppShell from './components/AppShell';
+import { getSession, logout, type Session } from './auth';
 
 type ModalKind = null | 'demo' | 'signin' | 'signup';
 
 export default function App() {
   const [modal, setModal] = useState<ModalKind>(null);
+  const [session, setSession] = useState<Session | null>(() => getSession());
 
+  // ─── Logged-in view: replace the landing page entirely with the app shell.
+  if (session) {
+    return (
+      <AppShell
+        session={session}
+        onSignOut={() => {
+          logout();
+          setSession(null);
+        }}
+      />
+    );
+  }
+
+  // ─── Landing page (logged-out)
   return (
     <>
       <Navbar
@@ -41,6 +58,10 @@ export default function App() {
           mode={modal}
           onClose={() => setModal(null)}
           onSwitchMode={(m) => setModal(m)}
+          onLoginSuccess={(s) => {
+            setSession(s);
+            setModal(null);
+          }}
         />
       )}
     </>

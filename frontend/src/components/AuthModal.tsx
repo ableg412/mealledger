@@ -1,4 +1,5 @@
 import { useState, FormEvent } from 'react';
+import { login, type Session } from '../auth';
 
 type Mode = 'signin' | 'signup';
 
@@ -6,25 +7,38 @@ interface AuthModalProps {
   mode: Mode;
   onClose: () => void;
   onSwitchMode: (m: Mode) => void;
+  onLoginSuccess: (session: Session) => void;
 }
 
-export default function AuthModal({ mode, onClose, onSwitchMode }: AuthModalProps) {
-  const [email, setEmail] = useState('');
+export default function AuthModal({ mode, onClose, onSwitchMode, onLoginSuccess }: AuthModalProps) {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [orgName, setOrgName] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
+
+  const isSignUp = mode === 'signup';
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    // Auth is not wired yet — this is intentionally a placeholder.
-    setNotice(
-      mode === 'signin'
-        ? "Sign-in isn't connected yet. We'll wire it to the auth backend next."
-        : "Sign-up isn't connected yet. We'll wire it to the auth backend next.",
-    );
-  }
+    setError(null);
+    setNotice(null);
 
-  const isSignUp = mode === 'signup';
+    if (isSignUp) {
+      // Real sign-up isn't wired yet. Point the user at the demo creds.
+      setNotice(
+        "Sign-up isn't connected yet — use the demo account below to try the app.",
+      );
+      return;
+    }
+
+    const session = login(username, password);
+    if (session) {
+      onLoginSuccess(session);
+    } else {
+      setError('Invalid username or password.');
+    }
+  }
 
   return (
     <div
@@ -42,8 +56,17 @@ export default function AuthModal({ mode, onClose, onSwitchMode }: AuthModalProp
           <button className="modal-close" onClick={onClose} aria-label="Close">×</button>
         </div>
         <div className="modal-body">
+          {!isSignUp && (
+            <div className="demo-creds-banner">
+              <strong>Demo account</strong>
+              <div>
+                Username: <code>josh</code> &nbsp;·&nbsp; Password: <code>1234</code>
+              </div>
+            </div>
+          )}
+          {error && <div className="form-error">{error}</div>}
           {notice && <div className="form-success">{notice}</div>}
-          <form onSubmit={handleSubmit} style={{ marginTop: notice ? 14 : 0 }}>
+          <form onSubmit={handleSubmit} style={{ marginTop: notice || error ? 14 : 0 }}>
             {isSignUp && (
               <div className="field">
                 <label htmlFor="org">Organization name</label>
@@ -57,13 +80,17 @@ export default function AuthModal({ mode, onClose, onSwitchMode }: AuthModalProp
               </div>
             )}
             <div className="field">
-              <label htmlFor="auth-email">Work email</label>
+              <label htmlFor="auth-username">
+                {isSignUp ? 'Work email' : 'Username'}
+              </label>
               <input
-                id="auth-email"
-                type="email"
+                id="auth-username"
+                type="text"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder={isSignUp ? 'you@yourorg.com' : 'josh'}
+                autoComplete={isSignUp ? 'email' : 'username'}
               />
             </div>
             <div className="field">
@@ -74,7 +101,7 @@ export default function AuthModal({ mode, onClose, onSwitchMode }: AuthModalProp
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                minLength={8}
+                autoComplete={isSignUp ? 'new-password' : 'current-password'}
               />
             </div>
             <button

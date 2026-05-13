@@ -711,3 +711,306 @@ section.section.alt {
   font-weight: 600; cursor: pointer; padding: 0 4px;
 }
 .modal-switch button:hover { text-decoration: underline; }
+
+.demo-creds-banner {
+  background: #eaf4fb;
+  border: 1px solid #cfe4f2;
+  color: var(--navy);
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 13.5px;
+  margin-bottom: 14px;
+}
+.demo-creds-banner strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--navy-900);
+}
+.demo-creds-banner code {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: var(--navy-900);
+}
+
+/* ─── App shell (logged-in view) ─── */
+.app-shell {
+  min-height: 100vh;
+  background: #f4f6f8;
+}
+.app-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.app-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.app-topbar-sep {
+  color: var(--border-strong);
+  font-size: 18px;
+}
+.app-topbar-section {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.app-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+.app-topbar-date {
+  color: var(--text-muted);
+}
+.app-topbar-user strong {
+  color: var(--navy-900);
+}
+.btn-compact {
+  padding: 8px 14px;
+  font-size: 13.5px;
+}
+.app-main {
+  padding: 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ─── H1530 grid ─── */
+.h1530 {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px 28px;
+  box-shadow: var(--shadow-sm);
+}
+.h1530-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.h1530-toolbar h2 {
+  margin: 0;
+  color: var(--navy-900);
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+.h1530-toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.h1530-table-form {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 13px;
+  color: #0f172a;
+}
+.h1530-table-form th,
+.h1530-table-form td {
+  border: 1px solid #475569;
+  padding: 0;
+  text-align: left;
+  vertical-align: middle;
+}
+.h1530-table-form thead th {
+  background: #fff;
+  text-align: center;
+  font-weight: 700;
+  color: #0d1f3a;
+  padding: 6px 4px;
+  font-size: 13.5px;
+}
+.h1530-table-form .meal-col {
+  width: 44px;
+  background: #fafafa;
+}
+.h1530-table-form .comp-col {
+  width: 200px;
+}
+.h1530-table-form .day-col {
+  text-align: center;
+  background: #fff;
+}
+.h1530-table-form .date-sub,
+.h1530-table-form .quan-sub {
+  font-weight: 600;
+  font-size: 12.5px;
+  color: #1c4a7e;
+  padding: 4px 6px;
+  background: #fff;
+}
+.h1530-table-form .date-sub {
+  width: 64px;
+}
+.h1530-table-form .quan-sub {
+  width: 88px;
+}
+.h1530-table-form .dropdown-arrow {
+  font-size: 9px;
+  color: #475569;
+  margin-left: 2px;
+}
+
+.meal-production-title {
+  font-weight: 700;
+  font-style: italic;
+  color: #0d1f3a;
+  font-size: 18px;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+.h1530-table-form .meal-label {
+  background: #fafafa;
+  text-align: center;
+  font-weight: 700;
+  width: 44px;
+  min-width: 44px;
+  vertical-align: middle;
+}
+.h1530-table-form .meal-label .rotated {
+  display: inline-block;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #0d1f3a;
+  font-size: 13.5px;
+  padding: 8px 0;
+}
+
+.h1530-table-form .comp-label {
+  padding: 7px 10px;
+  color: #0f172a;
+  font-size: 13px;
+  background: #fff;
+}
+.h1530-table-form .comp-label.snack-comp {
+  padding: 8px 10px;
+  line-height: 1.55;
+  font-size: 12.5px;
+}
+.h1530-table-form .comp-label.snack-comp div:last-child {
+  font-size: 11.5px;
+  color: #475569;
+  margin-top: 2px;
+}
+
+.h1530-table-form .date-cell,
+.h1530-table-form .quan-cell {
+  padding: 0;
+  height: 28px;
+}
+.cell-input {
+  width: 100%;
+  height: 100%;
+  min-height: 28px;
+  border: none;
+  outline: none;
+  padding: 4px 6px;
+  font: inherit;
+  background: transparent;
+  color: inherit;
+}
+.cell-input:focus {
+  background: rgba(74, 159, 209, 0.12);
+}
+.cell-input::placeholder {
+  color: transparent;
+}
+
+.h1530-table-form .snack-row .comp-label {
+  background: #fcfcfc;
+}
+
+.h1530-certification {
+  margin-top: 16px;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 11.5px;
+  color: #0f172a;
+}
+.h1530-certification p {
+  margin: 0 0 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  max-width: 100%;
+}
+.h1530-signature {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.sig-field {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+.sig-field.sig-date {
+  flex: 0 0 200px;
+  min-width: 200px;
+}
+.sig-field input {
+  border: none;
+  border-bottom: 1px solid #0f172a;
+  padding: 6px 4px;
+  font: inherit;
+  font-size: 13px;
+  background: transparent;
+  outline: none;
+}
+.sig-field input:focus {
+  border-bottom-color: var(--navy);
+  background: rgba(74, 159, 209, 0.08);
+}
+.sig-field label {
+  font-size: 11px;
+  color: #475569;
+  margin-top: 4px;
+  text-align: center;
+}
+.h1530-footer {
+  font-size: 11px;
+  color: #0f172a;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+/* ─── Print styles: make it look like the paper form ─── */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff !important; }
+  .app-shell { background: #fff !important; }
+  .app-main { padding: 0 !important; max-width: none !important; }
+  .h1530 {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  .h1530-table-form {
+    font-size: 11px;
+  }
+  .h1530-table-form th, .h1530-table-form td {
+    border-color: #000 !important;
+  }
+  .cell-input:focus { background: transparent !important; }
+  @page { size: landscape; margin: 0.4in; }
+}
