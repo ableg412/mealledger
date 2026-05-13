@@ -32,10 +32,11 @@ services:
           property: hostport
 
   # ─── Frontend (Vite static build) ──────────────────────────
+  # Static sites are always free on Render — do NOT set a `plan` field
+  # here, the Blueprint validator will reject it.
   - type: web
     name: mealledger-frontend
     runtime: static
-    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
