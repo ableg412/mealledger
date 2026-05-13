@@ -13,13 +13,13 @@ export default function Hero({ onRequestDemo, onSignUp }: HeroProps) {
             Built for 2026 CACFP standards
           </span>
           <h1>
-            Paperless H1530s and <span className="accent">real-time CACFP compliance</span>{' '}
-            for multi-site providers.
+            Nourishing children, <span className="accent">simplifying CACFP</span> for
+            every provider.
           </h1>
           <p className="lede">
-            MealLedger validates every meal as your staff serves it — vegetable crediting,
-            snack 2-of-5, leafy greens, juice limits — and gives sponsors audit-ready
-            H1530 reports for every site, every day.
+            MealLedger replaces the H1530 binder with a fast point-of-service tool that
+            validates every meal as it's served — and gives sponsors audit-ready reports
+            for every site, every day.
           </p>
           <div className="hero-ctas">
             <button className="btn btn-primary" onClick={onSignUp}>
@@ -30,13 +30,16 @@ export default function Hero({ onRequestDemo, onSignUp }: HeroProps) {
             </button>
           </div>
           <div className="hero-meta">
-            <span><span className="check">✓</span> No credit card required</span>
-            <span><span className="check">✓</span> Import existing rosters</span>
-            <span><span className="check">✓</span> TDA-aligned reports</span>
+            <span><span className="check">✓</span>No credit card</span>
+            <span><span className="check">✓</span>Import rosters</span>
+            <span><span className="check">✓</span>TDA-aligned reports</span>
           </div>
         </div>
 
-        <HeroCard />
+        <div className="hero-illustration">
+          <div className="bg-blob" aria-hidden="true" />
+          <HeroCard />
+        </div>
       </div>
     </section>
   );

@@ -3,10 +3,12 @@ import Logo from './Logo';
 interface NavbarProps {
   onRequestDemo: () => void;
   onSignIn: () => void;
+  // onSignUp kept for compat with App.tsx; not used now that we have a single
+  // primary CTA in the nav.
   onSignUp: () => void;
 }
 
-export default function Navbar({ onRequestDemo, onSignIn, onSignUp }: NavbarProps) {
+export default function Navbar({ onRequestDemo, onSignIn }: NavbarProps) {
   return (
     <header className="navbar">
       <div className="container navbar-inner">
@@ -14,20 +16,18 @@ export default function Navbar({ onRequestDemo, onSignIn, onSignUp }: NavbarProp
           <Logo />
         </a>
         <nav className="nav-links" aria-label="Primary">
-          <a href="#features">Features</a>
-          <a href="#compliance">Compliance</a>
+          <a href="#features">Product</a>
+          <a href="#solutions">Solutions</a>
           <a href="#pricing">Pricing</a>
+          <a href="#compliance">Compliance</a>
           <a href="#faq">FAQ</a>
         </nav>
         <div className="nav-cta">
-          <button className="btn-link" onClick={onSignIn}>
-            Sign in
-          </button>
-          <button className="btn btn-ghost" onClick={onRequestDemo}>
+          <button className="btn-link" onClick={onRequestDemo}>
             Request demo
           </button>
-          <button className="btn btn-primary" onClick={onSignUp}>
-            Start free trial
+          <button className="btn btn-primary btn-compact" onClick={onSignIn}>
+            Login
           </button>
         </div>
       </div>

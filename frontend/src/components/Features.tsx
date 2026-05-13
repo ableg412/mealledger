@@ -43,7 +43,7 @@ export default function Features() {
       <div className="container">
         <div className="section-head">
           <div className="kicker">What you get</div>
-          <h2>Stop reconciling paper. Start serving meals.</h2>
+          <h2>Stop reconciling paper. <span className="accent">Start serving meals.</span></h2>
           <p>
             MealLedger replaces the H1530 binder with a fast point-of-service tool your
             staff can run on a tablet — and gives directors the rollups they actually need.

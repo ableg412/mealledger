@@ -20,7 +20,7 @@ export default function Logo({ size = 34, showWordmark = true, color }: LogoProp
         aria-hidden="true"
       >
         {/* Plate ring */}
-        <circle cx="32" cy="32" r="28" fill="#1c4a7e" />
+        <circle cx="32" cy="32" r="28" fill="#0d2b54" />
         <circle cx="32" cy="34" r="17" fill="none" stroke="#ffffff" strokeWidth="2.5" />
         {/* Leaf */}
         <path
@@ -34,8 +34,8 @@ export default function Logo({ size = 34, showWordmark = true, color }: LogoProp
           fill="none"
           strokeLinecap="round"
         />
-        {/* Fork tine */}
-        <rect x="30" y="40" width="4" height="11" rx="1.5" fill="#f5a623" />
+        {/* Fork tine (yellow accent) */}
+        <rect x="30" y="40" width="4" height="11" rx="1.5" fill="#fdd835" />
       </svg>
       {showWordmark && <span>MealLedger</span>}
     </span>

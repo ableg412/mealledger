@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import TopAlert from './components/TopAlert';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import Solutions from './components/Solutions';
 import Compliance from './components/Compliance';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
@@ -10,6 +12,7 @@ import Footer from './components/Footer';
 import DemoModal from './components/DemoModal';
 import AuthModal from './components/AuthModal';
 import AppShell from './components/AppShell';
+import HelpWidget from './components/HelpWidget';
 import { getSession, logout, type Session } from './auth';
 
 type ModalKind = null | 'demo' | 'signin' | 'signup';
@@ -34,6 +37,7 @@ export default function App() {
   // ─── Landing page (logged-out)
   return (
     <>
+      <TopAlert onRequestDemo={() => setModal('demo')} />
       <Navbar
         onRequestDemo={() => setModal('demo')}
         onSignIn={() => setModal('signin')}
@@ -45,12 +49,14 @@ export default function App() {
           onSignUp={() => setModal('signup')}
         />
         <Features />
+        <Solutions />
         <Compliance />
         <Pricing onRequestDemo={() => setModal('demo')} />
         <Testimonials />
         <FAQ />
       </main>
       <Footer />
+      <HelpWidget onRequestDemo={() => setModal('demo')} />
 
       {modal === 'demo' && <DemoModal onClose={() => setModal(null)} />}
       {(modal === 'signin' || modal === 'signup') && (

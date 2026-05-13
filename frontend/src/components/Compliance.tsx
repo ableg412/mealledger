@@ -3,7 +3,7 @@ export default function Compliance() {
     <section className="compliance" id="compliance">
       <div className="container compliance-inner">
         <div>
-          <h2>Built around USDA &amp; Texas TDA rules — not bolted on.</h2>
+          <h2>Built around <span className="accent">USDA &amp; TDA rules</span> — not bolted on.</h2>
           <p>
             MealLedger's validator is the product. We encode the same rules sponsors
             check during reviews, so issues are caught at the point of service — long
