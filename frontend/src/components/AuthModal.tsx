@@ -80,17 +80,15 @@ export default function AuthModal({ mode, onClose, onSwitchMode, onLoginSuccess 
               </div>
             )}
             <div className="field">
-              <label htmlFor="auth-username">
-                {isSignUp ? 'Work email' : 'Username'}
-              </label>
+              <label htmlFor="auth-username">Username</label>
               <input
                 id="auth-username"
                 type="text"
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder={isSignUp ? 'you@yourorg.com' : 'josh'}
-                autoComplete={isSignUp ? 'email' : 'username'}
+                placeholder="josh"
+                autoComplete="username"
               />
             </div>
             <div className="field">
